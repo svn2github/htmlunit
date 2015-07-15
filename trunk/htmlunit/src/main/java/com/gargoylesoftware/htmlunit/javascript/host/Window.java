@@ -312,7 +312,7 @@ public class Window extends EventTarget implements ScriptableWithFallbackGetter,
                     + message + "\") no confirm handler installed, simulating the OK button");
             return true;
         }
-        return handler.handleConfirm(((HTMLDocument) document_).getHtmlPage(), message);
+        return handler.handleConfirm(document_.getPage(), message);
     }
 
     /**
@@ -327,7 +327,7 @@ public class Window extends EventTarget implements ScriptableWithFallbackGetter,
             LOG.warn("window.prompt(\"" + message + "\") no prompt handler installed");
             return null;
         }
-        return handler.handlePrompt(((HTMLDocument) document_).getHtmlPage(), message);
+        return handler.handlePrompt(document_.getPage(), message);
     }
 
     /**
