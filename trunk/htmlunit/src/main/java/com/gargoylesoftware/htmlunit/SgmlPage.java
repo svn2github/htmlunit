@@ -37,8 +37,7 @@ import com.gargoylesoftware.htmlunit.html.DomNodeList;
 import com.gargoylesoftware.htmlunit.html.DomText;
 
 /**
- * A basic class to be implemented by {@link com.gargoylesoftware.htmlunit.html.HtmlPage} and
- * {@link com.gargoylesoftware.htmlunit.xml.XmlPage}.
+ * A basic class of Standard Generalized Markup Language (SGML), e.g. HTML and XML.
  *
  * @version $Revision$
  * @author Ahmed Ashour

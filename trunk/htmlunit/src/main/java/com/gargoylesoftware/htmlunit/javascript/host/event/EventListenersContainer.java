@@ -27,6 +27,7 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.gargoylesoftware.htmlunit.InteractivePage;
 import com.gargoylesoftware.htmlunit.ScriptResult;
 import com.gargoylesoftware.htmlunit.html.DomNode;
 import com.gargoylesoftware.htmlunit.html.HtmlBody;
@@ -225,7 +226,7 @@ public class EventListenersContainer implements Serializable {
         final Function handler = getEventHandler(event.getType());
         if (handler != null) {
             event.setCurrentTarget(jsNode_);
-            final HtmlPage page = (HtmlPage) (node != null
+            final InteractivePage page = (InteractivePage) (node != null
                     ? node.getPage()
                     : jsNode_.getWindow().getWebWindow().getEnclosedPage());
             if (LOG.isDebugEnabled()) {

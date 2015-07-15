@@ -1255,9 +1255,9 @@ public class HTMLDocument extends Document implements ScriptableWithFallbackGett
     }
 
     /**
-     * Returns the element with the specified ID, or <tt>null</tt> if that element could not be found.
+     * Returns the element with the specified ID, or {@code null} if that element could not be found.
      * @param id the ID to search for
-     * @return the element, or <tt>null</tt> if it could not be found
+     * @return the element, or {@code null} if it could not be found
      */
     @JsxFunction
     public Object getElementById(final String id) {
@@ -1265,13 +1265,13 @@ public class HTMLDocument extends Document implements ScriptableWithFallbackGett
         Object result = null;
         try {
             final boolean caseSensitive = getBrowserVersion().hasFeature(JS_GET_ELEMENT_BY_ID_CASE_SENSITIVE);
-            final DomElement htmlElement = getHtmlPage().getElementById(id, caseSensitive);
-            final Object jsElement = getScriptableFor(htmlElement);
+            final DomElement domElement = getHtmlPage().getElementById(id, caseSensitive);
+            final Object jsElement = getScriptableFor(domElement);
             if (jsElement == NOT_FOUND) {
                 if (LOG.isDebugEnabled()) {
                     LOG.debug("getElementById(" + id
                             + ") cannot return a result as there isn't a JavaScript object for the HTML element "
-                            + htmlElement.getClass().getName());
+                            + domElement.getClass().getName());
                 }
             }
             else {

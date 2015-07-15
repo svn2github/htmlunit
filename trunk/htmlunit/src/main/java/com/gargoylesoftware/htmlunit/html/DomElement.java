@@ -42,6 +42,7 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.TypeInfo;
 
+import com.gargoylesoftware.htmlunit.InteractivePage;
 import com.gargoylesoftware.htmlunit.Page;
 import com.gargoylesoftware.htmlunit.ScriptResult;
 import com.gargoylesoftware.htmlunit.SgmlPage;
@@ -700,7 +701,8 @@ public class DomElement extends DomNamespaceNode implements Element, ElementTrav
         final SgmlPage page = getPage();
         page.getWebClient().setCurrentWindow(page.getEnclosingWindow());
 
-        if (this instanceof DisabledElement && ((DisabledElement) this).isDisabled()) {
+        if (!(page instanceof InteractivePage)
+                || (this instanceof DisabledElement && ((DisabledElement) this).isDisabled())) {
             return (P) page;
         }
 
@@ -715,7 +717,7 @@ public class DomElement extends DomNamespaceNode implements Element, ElementTrav
             else if (this instanceof HtmlOption) {
                 elementToFocus = ((HtmlOption) this).getEnclosingSelect();
             }
-            ((HtmlPage) page).setFocusedElement(elementToFocus);
+            ((InteractivePage) page).setFocusedElement(elementToFocus);
 
             mouseUp(shiftKey, ctrlKey, altKey, MouseEvent.BUTTON_LEFT);
 
@@ -1101,7 +1103,7 @@ public class DomElement extends DomNamespaceNode implements Element, ElementTrav
         if (this instanceof DisabledElement && ((DisabledElement) this).isDisabled()) {
             return getPage();
         }
-        final HtmlPage page = (HtmlPage) getPage();
+        final Page page = getPage();
         final Event event;
         if (MouseEvent.TYPE_CONTEXT_MENU.equals(eventType)
             && getPage().getWebClient().getBrowserVersion().hasFeature(EVENT_ONCLICK_USES_POINTEREVENT)) {
@@ -1196,9 +1198,11 @@ public class DomElement extends DomNamespaceNode implements Element, ElementTrav
     }
 
     /**
-     * Gets notified that it has lost the focus
+     * <span style="color:red">INTERNAL API - SUBJECT TO CHANGE AT ANY TIME - USE AT YOUR OWN RISK.</span><br>
+     *
+     * Gets notified that it has lost the focus.
      */
-    void removeFocus() {
+    public void removeFocus() {
         // nothing
     }
 
