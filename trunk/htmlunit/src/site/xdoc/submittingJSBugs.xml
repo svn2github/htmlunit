@@ -4,7 +4,6 @@
     <properties>
         <title>Submitting JavaScript Bugs</title>
         <author>Ahmed Ashour</author>
-        <revision>$Revision$</revision>
     </properties>
 
     <body>
@@ -70,7 +69,7 @@ net.sourceforge.htmlunit.corejs.javascript.EcmaError: TypeError: Cannot call met
             </p>
             <p>
                 Use the latest released version at least, if not the
-                <a href="https://ci.canoo.com/teamcity/viewLog.html?buildTypeId=HtmlUnit_FastBuild&buildId=lastSuccessful&tab=artifacts">
+                <a href="https://ci.canoo.com/teamcity/viewLog.html?buildTypeId=HtmlUnit_FastBuild&amp;buildId=lastSuccessful&amp;tab=artifacts">
                 latest snapshot</a>.
             </p>
         </section>

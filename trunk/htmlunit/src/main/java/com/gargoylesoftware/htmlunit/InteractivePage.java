@@ -61,9 +61,6 @@ public abstract class InteractivePage extends SgmlPage {
      * @param newElement the element that will receive the focus, use <code>null</code> to remove focus from any element
      * @return true if the specified element now has the focus
      * @see #getFocusedElement()
-     * @see #tabToNextElement()
-     * @see #tabToPreviousElement()
-     * @see #pressAccessKey(char)
      */
     public boolean setFocusedElement(final DomElement newElement) {
         return setFocusedElement(newElement, false);
@@ -77,9 +74,6 @@ public abstract class InteractivePage extends SgmlPage {
      * @param windowActivated - whether the enclosing window got focus resulting in specified element getting focus
      * @return true if the specified element now has the focus
      * @see #getFocusedElement()
-     * @see #tabToNextElement()
-     * @see #tabToPreviousElement()
-     * @see #pressAccessKey(char)
      */
     public boolean setFocusedElement(final DomElement newElement, final boolean windowActivated) {
         if (elementWithFocus_ == newElement && !windowActivated) {

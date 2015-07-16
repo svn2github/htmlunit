@@ -5,7 +5,6 @@
         <title>Packaging a release</title>
         <author email="mbowler@GargoyleSoftware.com">Mike Bowler</author>
         <author email="asashour@users.sourceforge.net">Ahmed Ashour</author>
-        <revision>$Revision$</revision>
     </properties>
 
     <body>
@@ -85,7 +84,7 @@
                         Update the version number in pom.xml
                     </li>
                     <li>
-                        Update the version number and release date in src/site/xdoc/index.xml
+                        Update the version number and release date in src/site/xdoc/index.xml (also in maven dependency)
                     </li>
                     <li>
                         Update the release date in src/changes/changes.xml
